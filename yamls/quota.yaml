@@ -1,3 +1,5 @@
+#to assign resource quota to namespace
+
 apiVersion: v1
 kind: ResourceQuota
 metadata:
