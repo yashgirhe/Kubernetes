@@ -1,0 +1,23 @@
+#labeled worker nodes and used for node selector
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ns1
+  labels:
+    env: prod
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      dish: vadapav
+  template:
+    metadata:
+      labels:
+        dish: vadapav
+    spec:
+      containers:
+      - name: c1
+        image: httpd
+      nodeSelector:
+        disk: ssd
