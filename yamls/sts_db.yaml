@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: app1
+  labels:
+    env: prod
+spec:
+  serviceName: "s1"
+  replicas: 3
+  selector:
+    matchLabels:
+      dish: vadapav
+  template:
+    metadata:
+      labels:
+        dish: vadapav
+    spec:
+      containers:
+      - image: mysql
+        name: c1
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          value: "123"
